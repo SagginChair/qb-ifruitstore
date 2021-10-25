@@ -80,9 +80,7 @@ end)
 
 RegisterServerEvent('qb-ifruitstore:server:callCops')
 AddEventHandler('qb-ifruitstore:server:callCops', function(streetLabel, coords)
-    local place = "iFruitStore"
-    local msg = "The Alram has been activated at the "..place.. " at " ..streetLabel
-
-    TriggerClientEvent("qb-ifruitstore:client:robberyCall", -1, streetLabel, coords)
-
+    local data = {displayCode = '10-65', description = 'Robbery', isImportant = 0, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'iFruit Store Robbery In Progress'}
+    local dispatchData = {dispatchData = data, caller = 'Alarm', coords = vector3(coords.x, coords.y, coords.z)}
+    TriggerEvent('wf-alerts:svNotify', dispatchData) 
 end)
