@@ -140,7 +140,7 @@ function GrabItem(spot)
         requiredItemsShowed2 = false
         TriggerEvent('inventory:client:requiredItems', requiredItems, false)
     end
-    QBCore.Functions.Progressbar("grab_ifruititem", "Disconnect Item", 10000, false, true, {
+    QBCore.Functions.Progressbar("grab_ifruititem", "Disconnecting Item", 10000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
         disableMouse = false,
@@ -314,7 +314,7 @@ RegisterNUICallback('thermitefailed', function()
     local randTime = math.random(10000, 15000)
     CreateFire(coords, randTime)
 
-    TriggerServerEvent('qb-ifruitstore:server:PoliceAlertMessage', 'People try to steal items at the iFruit Store', coords, true)
+    TriggerServerEvent('qb-ifruitstore:server:PoliceAlertMessage', 'People are stealing from the Apple Store!', coords, true)
 end)
 
 RegisterNUICallback('thermitesuccess', function()
@@ -421,7 +421,7 @@ AddEventHandler('qb-ifruitstore:client:robberyCall', function(streetLabel, coord
         SetBlipScale(blip, 1.2)
         SetBlipFlashes(blip, true)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("10-90: iFruitStore Robbery")
+        AddTextComponentString("10-90: AppleStore Robbery")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
